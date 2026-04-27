@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Inventory Management System
 
-## Getting Started
+A modern web-based application designed to manage inventory, track stock movements, and organize supplier data efficiently.
 
-First, run the development server:
+## 📌 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Inventory Management System adalah aplikasi berbasis web yang membantu proses pengelolaan barang secara terstruktur dan terintegrasi. Sistem ini dirancang untuk memudahkan pengguna dalam memantau stok, mencatat transaksi masuk dan keluar, serta mengelola data supplier dan kategori barang dalam satu platform.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Key Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* 📊 **Dashboard Overview**
+  Menampilkan ringkasan data seperti jumlah barang, supplier, serta aktivitas stok masuk dan keluar.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* 📦 **Product Management**
+  Mengelola data barang termasuk kategori, satuan, harga, dan informasi lainnya.
 
-## Learn More
+* 🏷️ **Category & Unit Management**
+  Mengelompokkan barang berdasarkan kategori dan satuan untuk mempermudah pengelolaan.
 
-To learn more about Next.js, take a look at the following resources:
+* 🚚 **Supplier Management**
+  Menyimpan dan mengelola data supplier sebagai sumber barang.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* 📥 **Stock In (Barang Masuk)**
+  Mencatat setiap transaksi barang masuk dari supplier.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* 📤 **Stock Out (Barang Keluar)**
+  Mencatat transaksi pengeluaran atau distribusi barang.
 
-## Deploy on Vercel
+* 📈 **Inventory Tracking**
+  Memantau jumlah stok barang secara real-time berdasarkan transaksi yang terjadi.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **Frontend**: Next.js (App Router), React, Tailwind CSS
+* **Backend & Database**: Supabase (PostgreSQL)
+* **Storage**: Supabase Storage (Image Upload)
+* **Language**: TypeScript
+
+## 🎯 Purpose
+
+Aplikasi ini dibuat untuk meningkatkan efisiensi dalam pengelolaan persediaan barang, meminimalisir kesalahan pencatatan, serta memberikan visibilitas yang lebih baik terhadap kondisi stok secara keseluruhan.
+
+## 👤 Author
+
+Developed by Ilham Setiawan
