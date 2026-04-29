@@ -21,7 +21,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
   try {
     profile = await getUserById(user.id);
   } catch {
-    redirect('/login');
+    // Jika tidak ditemukan di public.users, biarkan profile = null
+    // Jangan redirect ke /login karena akan menyebabkan infinite loop dengan proxy.ts
   }
 
   return (
