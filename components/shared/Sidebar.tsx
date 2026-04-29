@@ -1,6 +1,5 @@
 'use client';
 // components/shared/Sidebar.tsx
-// Sidebar navigasi utama — sesuai UI screenshot
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -27,7 +26,7 @@ interface NavItem {
   href?: string;
   icon: React.ReactNode;
   children?: { label: string; href: string; icon: React.ReactNode }[];
-  roles?: UserRole[]; // jika undefined → semua role bisa akses
+  roles?: UserRole[];
 }
 
 const NAV_ITEMS: NavItem[] = [
@@ -99,55 +98,23 @@ export function Sidebar({ userRole }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <aside className="sidebar">
+    <aside className="fixed left-0 top-0 h-screen w-[260px] bg-white/70 backdrop-blur-2xl border-r border-white/40 shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex flex-col z-40 overflow-y-auto overflow-x-hidden transition-all duration-300">
       {/* Logo */}
-      <div className="sidebar-logo">
-        <div className="sidebar-logo-icon">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 40 40"
-            fill="none"
-          >
-            <polygon
-              points="20,4 36,32 4,32"
-              fill="none"
-              stroke="#f59e0b"
-              strokeWidth="2.5"
-            />
-            <line
-              x1="20"
-              y1="4"
-              x2="20"
-              y2="32"
-              stroke="#f59e0b"
-              strokeWidth="2"
-            />
-            <line
-              x1="12"
-              y1="18"
-              x2="28"
-              y2="18"
-              stroke="#f59e0b"
-              strokeWidth="2"
-            />
-          </svg>
+      <div className="flex items-center justify-center pt-8 pb-6 px-4">
+        <div className="flex items-center gap-3 bg-white/80 border border-white/60 shadow-sm rounded-2xl p-3 w-full">
+          <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-inner">
+            <Package size={20} className="text-white" />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-bold text-[14px] text-slate-800 leading-tight">Akurat Sukses</span>
+            <span className="text-[11px] font-semibold text-purple-600">Inventory System</span>
+          </div>
         </div>
       </div>
 
-      {/* Search */}
-      <div className="sidebar-search">
-        <input
-          type="text"
-          placeholder="Search"
-          className="sidebar-search-input"
-        />
-      </div>
-
       {/* Nav Items */}
-      <nav className="sidebar-nav">
+      <nav className="flex-1 px-4 flex flex-col gap-1.5 pb-8">
         {NAV_ITEMS.map((item) => {
-          // Filter berdasarkan role
           if (item.roles && !item.roles.includes(userRole)) return null;
 
           if (item.children) {
@@ -165,9 +132,15 @@ export function Sidebar({ userRole }: SidebarProps) {
             <Link
               key={item.label}
               href={item.href!}
-              className={`sidebar-item ${isActive ? 'active' : ''}`}
+              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-[13px] transition-all duration-200 ${
+                isActive 
+                  ? 'bg-purple-600 text-white shadow-md shadow-purple-600/20' 
+                  : 'text-slate-500 hover:bg-purple-50 hover:text-purple-700'
+              }`}
             >
-              {item.icon}
+              <div className={`${isActive ? 'text-white' : 'text-slate-400'}`}>
+                {item.icon}
+              </div>
               <span>{item.label}</span>
             </Link>
           );
@@ -179,39 +152,53 @@ export function Sidebar({ userRole }: SidebarProps) {
 
 // ─── Sidebar Group (dengan sub-menu collapsible) ───────────────────────────
 function SidebarGroup({ item, pathname }: { item: NavItem; pathname: string }) {
-  // Auto-expand jika salah satu child aktif
   const isAnyChildActive = item.children?.some((c) => pathname.startsWith(c.href));
   const [open, setOpen] = useState(isAnyChildActive ?? false);
 
   return (
-    <div className="sidebar-group">
+    <div className="flex flex-col gap-1 mt-1">
       <button
-        className={`sidebar-item sidebar-group-trigger ${open ? 'group-open' : ''}`}
+        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-[13px] transition-all duration-200 w-full text-left ${
+          isAnyChildActive && !open
+            ? 'bg-purple-50 text-purple-700'
+            : 'text-slate-600 hover:bg-slate-50'
+        }`}
         onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
       >
-        {item.icon}
-        <span>{item.label}</span>
-        <span className="sidebar-chevron">{open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}</span>
+        <div className="text-slate-400">
+          {item.icon}
+        </div>
+        <span className="flex-1">{item.label}</span>
+        <div className={`transition-transform duration-200 text-slate-400 ${open ? 'rotate-90' : ''}`}>
+          <ChevronRight size={14} />
+        </div>
       </button>
 
-      {open && (
-        <div className="sidebar-sub">
-          {item.children?.map((child) => {
-            const isActive = pathname.startsWith(child.href);
-            return (
-              <Link
-                key={child.href}
-                href={child.href}
-                className={`sidebar-sub-item ${isActive ? 'active' : ''}`}
-              >
+      <div 
+        className={`flex flex-col gap-1 overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? 'max-h-48 opacity-100 mt-1' : 'max-h-0 opacity-0'
+        }`}
+      >
+        {item.children?.map((child) => {
+          const isActive = pathname.startsWith(child.href);
+          return (
+            <Link
+              key={child.href}
+              href={child.href}
+              className={`flex items-center gap-3 pl-11 pr-3 py-2 rounded-xl text-[12.5px] font-medium transition-all duration-200 ${
+                isActive 
+                  ? 'bg-purple-50 text-purple-700' 
+                  : 'text-slate-500 hover:text-purple-600 hover:bg-slate-50'
+              }`}
+            >
+              <div className={isActive ? 'text-purple-600' : 'text-slate-400'}>
                 {child.icon}
-                <span>{child.label}</span>
-              </Link>
-            );
-          })}
-        </div>
-      )}
+              </div>
+              <span>{child.label}</span>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
