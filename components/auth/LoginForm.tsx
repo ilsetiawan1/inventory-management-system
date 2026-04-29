@@ -231,7 +231,8 @@ export function LoginForm() {
         .lf-wrap > *:nth-child(4) { animation-delay: 0.20s; }
         .lf-wrap > *:nth-child(5) { animation-delay: 0.25s; }
         .lf-wrap > *:nth-child(6) { animation-delay: 0.30s; }
-      `}</style>
+      `}
+      </style>
 
       <div className="lf-wrap">
 
