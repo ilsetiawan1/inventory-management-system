@@ -118,7 +118,7 @@ export function LoginRightPanel({ children }: LoginRightPanelProps) {
 
       {/* ── Form card (children) ── */}
       <div
-        className="w-full max-w-[420px] px-6 md:px-0"
+        className="w-full max-w-105 px-6 md:px-0"
         style={{ position: "relative", zIndex: 10 }}
       >
         <div

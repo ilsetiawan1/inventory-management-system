@@ -1,4 +1,4 @@
-// components/auth/BrandPanel.tsx
+﻿// components/auth/BrandPanel.tsx
 // Left panel desktop — brand, headline, feature list, ilustrasi
 
 import Image from 'next/image';
@@ -109,7 +109,7 @@ export function BrandPanel() {
       {/* ── Logo ── */}
       <div className="relative z-10 flex items-center gap-3">
         <div
-          className="flex items-center justify-center rounded-xl border overflow-hidden flex-shrink-0"
+          className="flex items-center justify-center rounded-xl border overflow-hidden shrink-0"
           style={{
             width: 44,
             height: 44,
@@ -194,7 +194,7 @@ export function BrandPanel() {
               }}
             >
               <div
-                className="flex items-center justify-center rounded-lg flex-shrink-0"
+                className="flex items-center justify-center rounded-lg shrink-0"
                 style={{ width: 28, height: 28, background: 'rgba(251,191,36,0.12)', border: '1px solid rgba(251,191,36,0.18)' }}
               >
                 {f.icon}
@@ -220,3 +220,4 @@ export function BrandPanel() {
     </div>
   );
 }
+

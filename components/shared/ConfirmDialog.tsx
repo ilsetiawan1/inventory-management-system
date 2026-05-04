@@ -1,6 +1,6 @@
-'use client';
+﻿'use client';
 
-import { AlertTriangle, X } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 interface ConfirmDialogProps {
@@ -30,17 +30,20 @@ export function ConfirmDialog({
   const [render, setRender] = useState(false);
 
   useEffect(() => {
+    let timer: NodeJS.Timeout;
     if (isOpen) {
-      setRender(true);
-      // Small delay to allow CSS transition
-      requestAnimationFrame(() => {
-        setShow(true);
-      });
+      timer = setTimeout(() => {
+        setRender(true);
+        // Small delay to allow CSS transition
+        requestAnimationFrame(() => {
+          setShow(true);
+        });
+      }, 0);
     } else {
-      setShow(false);
-      const timer = setTimeout(() => setRender(false), 300); // match transition duration
-      return () => clearTimeout(timer);
+      setTimeout(() => setShow(false), 0);
+      timer = setTimeout(() => setRender(false), 300); // match transition duration
     }
+    return () => clearTimeout(timer);
   }, [isOpen]);
 
   if (!render) return null;
@@ -64,8 +67,8 @@ export function ConfirmDialog({
         <div className="p-6 pt-8 flex flex-col items-center text-center">
           <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 shadow-inner ${
             isDestructive 
-              ? 'bg-gradient-to-br from-red-100 to-red-50 border border-red-100 text-red-500' 
-              : 'bg-gradient-to-br from-purple-100 to-purple-50 border border-purple-100 text-purple-600'
+              ? 'bg-linear-to-br from-red-100 to-red-50 border border-red-100 text-red-500' 
+              : 'bg-linear-to-br from-purple-100 to-purple-50 border border-purple-100 text-purple-600'
           }`}>
             <AlertTriangle size={28} />
           </div>
@@ -104,3 +107,4 @@ export function ConfirmDialog({
     </div>
   );
 }
+

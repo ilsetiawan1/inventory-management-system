@@ -11,7 +11,7 @@ interface PaginationProps {
 export function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
   if (totalPages <= 1) return null;
 
-  const pages = [];
+  const pages: (number | string)[] = [];
   
   // Logic sederhana untuk menampilkan halaman:
   // Selalu tampilkan halaman 1, halaman terakhir, dan halaman di sekitar currentPage
