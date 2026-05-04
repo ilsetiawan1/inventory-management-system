@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Search, Package } from 'lucide-react';
@@ -99,7 +99,7 @@ export function PersediaanTable({ data }: PersediaanTableProps) {
           <div key={item.id} className="bg-white/80 backdrop-blur-xl border border-white/80 rounded-2xl p-5 shadow-[0_4px_16px_-8px_rgba(0,0,0,0.05)] flex flex-col gap-3">
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
                   <Package size={20} />
                 </div>
                 <div className="flex flex-col">
@@ -129,3 +129,4 @@ export function PersediaanTable({ data }: PersediaanTableProps) {
     </div>
   );
 }
+

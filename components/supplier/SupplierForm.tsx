@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import type { Supplier } from '@/types/supplier';
@@ -103,7 +103,7 @@ export function SupplierForm({ initialData, onSubmit, onCancel, isLoading }: Sup
           <button
             type="submit"
             disabled={isLoading}
-            className="px-6 py-3 rounded-2xl text-[14px] font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-lg shadow-purple-600/20 transition-all active:scale-95 disabled:opacity-50"
+            className="px-6 py-3 rounded-2xl text-[14px] font-bold text-white bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 shadow-lg shadow-purple-600/20 transition-all active:scale-95 disabled:opacity-50"
           >
             {isLoading ? 'Menyimpan...' : 'Simpan Data'}
           </button>
@@ -112,3 +112,4 @@ export function SupplierForm({ initialData, onSubmit, onCancel, isLoading }: Sup
     </div>
   );
 }
+

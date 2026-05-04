@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 
@@ -122,7 +122,7 @@ export function BarangMasukForm({ barangList, supplierList, onSubmit, onCancel, 
           <button
             type="submit"
             disabled={isLoading}
-            className="px-6 py-3 rounded-2xl text-[14px] font-bold text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 shadow-lg shadow-blue-500/20 transition-all active:scale-95 disabled:opacity-50"
+            className="px-6 py-3 rounded-2xl text-[14px] font-bold text-white bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 shadow-lg shadow-blue-500/20 transition-all active:scale-95 disabled:opacity-50"
           >
             {isLoading ? 'Memproses...' : 'Simpan Transaksi'}
           </button>
@@ -131,3 +131,4 @@ export function BarangMasukForm({ barangList, supplierList, onSubmit, onCancel, 
     </div>
   );
 }
+

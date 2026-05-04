@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+﻿import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import React from 'react';
 
 interface StatCardProps {
@@ -55,7 +55,7 @@ export function StatCard({
     <div className="relative overflow-hidden bg-white/70 backdrop-blur-xl border border-white/80 rounded-3xl p-5 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_-12px_rgba(109,40,217,0.15)] transition-all duration-300 group cursor-default">
       
       {/* Background subtle blob */}
-      <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full blur-[40px] opacity-40 transition-opacity duration-300 group-hover:opacity-60 ${colors.bg}`} />
+      <div className={`absolute -right-10 -top-10 w-32 h-32 rounded-full blur-2xl opacity-40 transition-opacity duration-300 group-hover:opacity-60 ${colors.bg}`} />
 
       <div className="relative z-10">
         {/* Header */}
@@ -106,3 +106,4 @@ export function StatCard({
     </div>
   );
 }
+

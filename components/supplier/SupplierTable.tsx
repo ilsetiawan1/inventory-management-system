@@ -1,7 +1,7 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
-import { Edit2, Trash2, Phone, Mail, MapPin, Search, Plus } from 'lucide-react';
+import { Edit2, Trash2, Phone, Mail, MapPin, Search, Plus, User } from 'lucide-react';
 import type { Supplier } from '@/types/supplier';
 
 interface SupplierTableProps {
@@ -28,7 +28,7 @@ export function SupplierTable({ data, onEdit, onDelete, onAdd }: SupplierTablePr
         </div>
         <button
           onClick={onAdd}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold text-[14px] shadow-lg shadow-purple-600/20 transition-all active:scale-[0.98]"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold text-[14px] shadow-lg shadow-purple-600/20 transition-all active:scale-[0.98]"
         >
           <Plus size={18} />
           <span>Tambah Supplier</span>
@@ -78,7 +78,7 @@ export function SupplierTable({ data, onEdit, onDelete, onAdd }: SupplierTablePr
                   </td>
                   <td className="px-6 py-4 max-w-[200px] truncate text-[13px] text-slate-600">
                     <div className="flex items-center gap-1.5">
-                      <MapPin size={14} className="text-slate-400 flex-shrink-0" />
+                      <MapPin size={14} className="text-slate-400 shrink-0" />
                       <span className="truncate">{item.alamat || '-'}</span>
                     </div>
                   </td>
@@ -172,3 +172,4 @@ export function SupplierTable({ data, onEdit, onDelete, onAdd }: SupplierTablePr
     </div>
   );
 }
+

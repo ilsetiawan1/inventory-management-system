@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 
@@ -105,7 +105,7 @@ export function BarangKeluarForm({ persediaanList, onSubmit, onCancel, isLoading
           <button
             type="submit"
             disabled={isLoading || (formData.jumlah_keluar ? parseInt(formData.jumlah_keluar) > maxStok : true)}
-            className="px-6 py-3 rounded-2xl text-[14px] font-bold text-white bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 shadow-lg shadow-red-500/20 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-3 rounded-2xl text-[14px] font-bold text-white bg-linear-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 shadow-lg shadow-red-500/20 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? 'Memproses...' : 'Simpan Transaksi'}
           </button>
@@ -114,3 +114,4 @@ export function BarangKeluarForm({ persediaanList, onSubmit, onCancel, isLoading
     </div>
   );
 }
+

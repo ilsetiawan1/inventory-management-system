@@ -1,7 +1,7 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
-import { Search, Plus, Calendar, PackageOpen } from 'lucide-react';
+import { Search, Plus, Calendar } from 'lucide-react';
 
 import type { BarangMasukWithRelasi } from '@/types/transaksi';
 
@@ -43,7 +43,7 @@ export function BarangMasukTable({ data, onAdd }: BarangMasukTableProps) {
         </div>
         <button
           onClick={onAdd}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold text-[14px] shadow-lg shadow-purple-600/20 transition-all active:scale-[0.98]"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold text-[14px] shadow-lg shadow-purple-600/20 transition-all active:scale-[0.98]"
         >
           <Plus size={18} />
           <span>Transaksi Baru</span>
@@ -137,3 +137,4 @@ export function BarangMasukTable({ data, onAdd }: BarangMasukTableProps) {
     </div>
   );
 }
+
