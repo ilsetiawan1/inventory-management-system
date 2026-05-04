@@ -71,6 +71,28 @@
   --font-mono: ui-monospace, "Fira Code", monospace;
 }
 
+.dark {
+  /* ── Neutral / Base ── */
+  --color-background: #09090b;       /* Background utama sangat gelap */
+  --color-surface: #18181b;          /* Card / panel sedikit lebih terang */
+  --color-surface-hover: #27272a;    /* Surface hover */
+  --color-border: #27272a;           /* Border abu gelap */
+  --color-border-subtle: #18181b;    /* Border sangat halus */
+
+  /* ── Text ── */
+  --color-text-primary: #fafafa;     /* Teks utama putih */
+  --color-text-secondary: #a1a1aa;   /* Teks sekunder abu terang */
+  --color-text-muted: #71717a;       /* Placeholder */
+  --color-text-disabled: #52525b;
+
+  /* ── Sidebar ── */
+  --sidebar-bg: #09090b;
+  --sidebar-border: #27272a;
+  --sidebar-item-hover: #27272a;
+  --sidebar-item-active-bg: #7c3aed;
+  --sidebar-item-active-text: #ffffff;
+}
+
 /* =========================================
    RESET & BASE STYLES
    ========================================= */

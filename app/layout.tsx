@@ -3,6 +3,7 @@
 
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
@@ -18,21 +19,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <body>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
 
-        {/* Toast notifications — sonner */}
-        <Toaster
-          position="top-right"
-          richColors
-          closeButton
-          duration={3500}
-          toastOptions={{
-            style: {
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.875rem',
-            },
-          }}
-        />
+          {/* Toast notifications — sonner */}
+          <Toaster
+            position="top-right"
+            richColors
+            closeButton
+            duration={3500}
+            toastOptions={{
+              style: {
+                fontFamily: 'var(--font-sans)',
+                fontSize: '0.875rem',
+              },
+            }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );
