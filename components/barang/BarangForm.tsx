@@ -116,7 +116,7 @@ export function BarangForm({ initialData, kategoriList, satuanList, onSubmit, on
               type="number"
               min="0"
               value={formData.harga}
-              onChange={(e) => setFormData({ ...formData, harga: e.target.value })}
+              onChange={(e) => setFormData({ ...formData, harga: e.target.value ? Number(e.target.value) : 0 })}
               placeholder="0"
               className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-2xl text-[14px] text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition-all placeholder:text-slate-400"
             />

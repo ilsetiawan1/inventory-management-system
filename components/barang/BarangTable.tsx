@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Edit2, Trash2, Search, Plus, Image as ImageIcon, Package } from 'lucide-react';
@@ -39,7 +39,7 @@ export function BarangTable({ data, onEdit, onDelete, onAdd }: BarangTableProps)
         <div className="flex w-full sm:w-auto items-center gap-3">
           <button
             onClick={onAdd}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold text-[14px] shadow-lg shadow-purple-600/20 transition-all active:scale-[0.98]"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold text-[14px] shadow-lg shadow-purple-600/20 transition-all active:scale-[0.98]"
           >
             <Plus size={18} />
             <span>Tambah Barang</span>
@@ -65,12 +65,12 @@ export function BarangTable({ data, onEdit, onDelete, onAdd }: BarangTableProps)
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-4">
                       {item.image_url ? (
-                        <div className="w-12 h-12 rounded-xl overflow-hidden border border-slate-200 flex-shrink-0">
+                        <div className="w-12 h-12 rounded-xl overflow-hidden border border-slate-200 shrink-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={item.image_url} alt={item.nama_barang} className="w-full h-full object-cover" />
                         </div>
                       ) : (
-                        <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center flex-shrink-0 text-slate-400">
+                        <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 text-slate-400">
                           <ImageIcon size={20} />
                         </div>
                       )}
@@ -130,7 +130,7 @@ export function BarangTable({ data, onEdit, onDelete, onAdd }: BarangTableProps)
         {data.map((item) => (
           <div key={item.id} className="bg-white/80 backdrop-blur-xl border border-white/80 rounded-2xl p-4 shadow-[0_4px_16px_-8px_rgba(0,0,0,0.05)] flex gap-4">
             {/* Image */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               {item.image_url ? (
                 <div className="w-16 h-16 rounded-xl overflow-hidden border border-slate-200">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -187,3 +187,4 @@ export function BarangTable({ data, onEdit, onDelete, onAdd }: BarangTableProps)
     </div>
   );
 }
+

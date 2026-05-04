@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import { UploadCloud, X, Image as ImageIcon } from 'lucide-react';
+import { UploadCloud } from 'lucide-react';
 
 interface BarangImageUploadProps {
   initialPreview: string | null;
