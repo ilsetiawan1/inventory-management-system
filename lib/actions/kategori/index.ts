@@ -3,7 +3,7 @@
 // Server Actions untuk Kategori Barang & Satuan (Data Master)
 
 import { revalidatePath } from 'next/cache';
-import { getAllKategori, getKategoriById, getLastKategoriCode, insertKategori, updateKategori, deleteKategori } from '@/lib/repositories/kategoriRepository';
+import { getAllKategori, getLastKategoriCode, insertKategori, updateKategori, deleteKategori } from '@/lib/repositories/kategoriRepository';
 import { getAllSatuan, insertSatuan, updateSatuan, deleteSatuan } from '@/lib/repositories/satuanRepository';
 import { generateKategoriCode } from '@/lib/utils/generateCode';
 import { withErrorHandler } from '@/lib/utils/response';

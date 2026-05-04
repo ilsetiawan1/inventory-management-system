@@ -5,7 +5,7 @@
 import { revalidatePath } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
 import { createUser, editUser, removeUser, getUserList, getUserDetail } from '@/lib/services/usersService';
-import { withErrorHandler, errorResponse } from '@/lib/utils/response';
+import { withErrorHandler } from '@/lib/utils/response';
 import type { UpdateUserPayload, UserRole } from '@/types';
 
 export async function actionGetUserList(params?: { search?: string; page?: number; limit?: number }) {
@@ -27,6 +27,7 @@ export async function actionCreateUser(formData: FormData) {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
     const role = formData.get('role') as UserRole;
+    const permissionsStr = formData.get('permissions') as string;
 
     if (!name || !email || !password || !role) {
       throw new Error('Semua field wajib diisi');
@@ -54,6 +55,24 @@ export async function actionCreateUser(formData: FormData) {
       email,
       role,
     });
+
+    // Update permissions jika ada (karena trigger sudah membuat default)
+    if (permissionsStr) {
+      try {
+        const permissionsMap = JSON.parse(permissionsStr);
+        // Lakukan update untuk setiap fitur_id
+        for (const [fiturId, perms] of Object.entries(permissionsMap)) {
+          const { can_create, can_read, can_update, can_delete } = perms as { can_create: boolean; can_read: boolean; can_update: boolean; can_delete: boolean };
+          await supabase
+            .from('user_permissions')
+            .update({ can_create, can_read, can_update, can_delete })
+            .eq('id_user', authData.user.id)
+            .eq('id_fitur', fiturId);
+        }
+      } catch (err) {
+        console.error('Gagal mengupdate permissions:', err);
+      }
+    }
 
     revalidatePath('/hak-akses');
     return result;
