@@ -1,4 +1,4 @@
-// components/landing/LandingAbout.tsx
+﻿// components/landing/LandingAbout.tsx
 // Section tentang sistem — informasi domain inventory
 
 import { Building2, MapPin, Phone } from 'lucide-react';
@@ -68,7 +68,7 @@ export function LandingAbout() {
             ))}
 
             {/* Highlight card full width */}
-            <div className="col-span-2 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl p-6 text-white">
+            <div className="col-span-2 bg-linear-to-br from-violet-600 to-indigo-600 rounded-2xl p-6 text-white">
               <p className="text-xs font-semibold text-white/70 uppercase tracking-widest mb-2">Teknologi</p>
               <div className="flex flex-wrap gap-2">
                 {['Next.js 15', 'Supabase', 'TypeScript', 'PostgreSQL', 'Row Level Security'].map((t) => (
@@ -88,3 +88,4 @@ export function LandingAbout() {
     </section>
   );
 }
+

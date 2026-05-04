@@ -1,4 +1,4 @@
-// components/landing/LandingCTA.tsx
+﻿// components/landing/LandingCTA.tsx
 
 import Link from 'next/link';
 import { ArrowRight, LogIn, UserPlus } from 'lucide-react';
@@ -7,7 +7,7 @@ export function LandingCTA() {
   return (
     <section className="py-16 sm:py-20 px-5 sm:px-8 bg-white">
       <div className="max-w-4xl mx-auto">
-        <div className="relative bg-gradient-to-br from-violet-600 to-indigo-700 rounded-3xl p-8 sm:p-14 text-center overflow-hidden shadow-2xl shadow-violet-200/50">
+        <div className="relative bg-linear-to-br from-violet-600 to-indigo-700 rounded-3xl p-8 sm:p-14 text-center overflow-hidden shadow-2xl shadow-violet-200/50">
 
           {/* Deco blobs */}
           <div className="absolute top-0 right-0 w-60 h-60 rounded-full bg-white/10 -translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -60,3 +60,4 @@ export function LandingCTA() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-// components/landing/LandingHero.tsx
+﻿// components/landing/LandingHero.tsx
 
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -20,7 +20,7 @@ export function LandingHero() {
   return (
     <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 px-5 sm:px-8 overflow-hidden">
       {/* Background layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-violet-50/70" />
+      <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-white to-violet-50/70" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-violet-100/30 blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-indigo-100/30 blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
       {/* Dot grid */}
@@ -121,3 +121,4 @@ export function LandingHero() {
     </section>
   );
 }
+
